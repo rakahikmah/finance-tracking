@@ -1,0 +1,422 @@
+definitions:
+  entity.CreateUserReq:
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      reenter_password:
+        type: string
+      role_access:
+        type: integer
+    required:
+    - email
+    - name
+    - password
+    - phone
+    - reenter_password
+    - role_access
+    type: object
+  entity.CreateUserResponse:
+    properties:
+      access_token:
+        type: string
+      email:
+        type: string
+      name:
+        type: string
+      phone:
+        type: string
+      role_access:
+        type: string
+      user_id:
+        type: integer
+    type: object
+  entity.CustomErrorResponse:
+    properties:
+      code:
+        type: string
+      http_code:
+        type: integer
+      message:
+        type: string
+    type: object
+  entity.GeneralResponse:
+    properties:
+      code:
+        type: integer
+      data: {}
+      message:
+        type: string
+    type: object
+  entity.LoginReq:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  entity.LoginResponse:
+    properties:
+      access_token:
+        type: string
+      email:
+        type: string
+      name:
+        type: string
+      role_access:
+        type: integer
+      user_id:
+        type: integer
+    type: object
+  entity.TodoListReq:
+    properties:
+      description:
+        type: string
+      doing_at:
+        type: string
+      title:
+        type: string
+      user_id:
+        type: integer
+    required:
+    - description
+    - doing_at
+    - title
+    - user_id
+    type: object
+  entity.TodoListResponse:
+    properties:
+      created_at:
+        type: string
+      description:
+        type: string
+      doing_at:
+        type: string
+      id:
+        type: integer
+      title:
+        type: string
+      updated_at:
+        type: string
+    type: object
+info:
+  contact:
+    email: rahmat.putra@spesolution.com
+    name: API Support
+  description: This is a sample swagger for Go Skeleton
+  license:
+    name: Apache 2.0
+  termsOfService: http://swagger.io/terms/
+  title: Go Skeleton!
+  version: "1.0"
+paths:
+  /api/v1/auth/check-token:
+    get:
+      description: Check Token
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: '#/definitions/entity.GeneralResponse'
+        "401":
+          description: Invalid Access Token
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+        "422":
+          description: Invalid Payload Request Body
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+        "500":
+          description: Internal server Error
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+      security:
+      - Bearer: []
+      summary: Check Token
+      tags:
+      - Auth
+  /api/v1/auth/login:
+    post:
+      consumes:
+      - application/json
+      description: Login by using registered account
+      parameters:
+      - description: Payload Request Body
+        in: body
+        name: req
+        required: true
+        schema:
+          $ref: '#/definitions/entity.LoginReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Success
+          schema:
+            allOf:
+            - $ref: '#/definitions/entity.GeneralResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/entity.LoginResponse'
+              type: object
+        "401":
+          description: Invalid Access Token
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+        "422":
+          description: Invalid Payload Request Body
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+        "500":
+          description: Internal server Error
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+      summary: Login
+      tags:
+      - Auth
+  /api/v1/auth/register:
+    post:
+      consumes:
+      - application/json
+      description: Create User for Guest
+      parameters:
+      - description: Payload Request Body
+        in: body
+        name: req
+        required: true
+        schema:
+          $ref: '#/definitions/entity.CreateUserReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Success
+          schema:
+            allOf:
+            - $ref: '#/definitions/entity.GeneralResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/entity.CreateUserResponse'
+              type: object
+        "401":
+          description: Invalid Access Token
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+        "422":
+          description: Invalid Payload Request Body
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+        "500":
+          description: Internal server Error
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+      summary: Create User as Guest
+      tags:
+      - Auth
+  /api/v1/todo-list:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a list of Todo Lists belonging to a user by their User
+        ID
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Success
+          schema:
+            allOf:
+            - $ref: '#/definitions/entity.GeneralResponse'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/entity.TodoListResponse'
+                  type: array
+              type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+        "422":
+          description: Invalid Request Body
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+        "500":
+          description: Internal server Error
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+      security:
+      - Bearer: []
+      summary: Retrieve Todo Lists by User ID
+      tags:
+      - Todo List
+    post:
+      consumes:
+      - application/json
+      description: Create a new Todo List
+      parameters:
+      - description: Payload Request Body
+        in: body
+        name: req
+        required: true
+        schema:
+          $ref: '#/definitions/entity.TodoListReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Success
+          schema:
+            allOf:
+            - $ref: '#/definitions/entity.GeneralResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/entity.TodoListReq'
+              type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+        "422":
+          description: Invalid Request Body
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+        "500":
+          description: Internal server Error
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+      security:
+      - Bearer: []
+      summary: Create a new Todo List
+      tags:
+      - Todo List
+    put:
+      consumes:
+      - application/json
+      description: Update an existing Todo List
+      parameters:
+      - description: ID of the todo list
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Payload Request Body
+        in: body
+        name: req
+        required: true
+        schema:
+          $ref: '#/definitions/entity.TodoListReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: '#/definitions/entity.GeneralResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+        "422":
+          description: Invalid Request Body
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+        "500":
+          description: Internal server Error
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+      security:
+      - Bearer: []
+      summary: Update an existing Todo List by ID
+      tags:
+      - Todo List
+  /api/v1/todo-lists/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing Todo List by its ID
+      parameters:
+      - description: ID of the todo list
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: '#/definitions/entity.GeneralResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+        "422":
+          description: Invalid Request Body
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+        "500":
+          description: Internal server Error
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+      security:
+      - Bearer: []
+      summary: Delete Todo List by ID
+      tags:
+      - Todo List
+    get:
+      consumes:
+      - application/json
+      description: Get a Todo List by its ID
+      parameters:
+      - description: ID of the Todo List
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Success
+          schema:
+            allOf:
+            - $ref: '#/definitions/entity.GeneralResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/entity.TodoListResponse'
+              type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+        "422":
+          description: Invalid Request Body
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+        "500":
+          description: Internal server Error
+          schema:
+            $ref: '#/definitions/entity.CustomErrorResponse'
+      security:
+      - Bearer: []
+      summary: Get Todo List by ID
+      tags:
+      - Todo List
+securityDefinitions:
+  Bearer:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
