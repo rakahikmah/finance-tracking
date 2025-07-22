@@ -4,10 +4,10 @@ import (
 	"context"
 
 	errwrap "github.com/pkg/errors"
-	"github.com/rahmatrdn/go-skeleton/config"
-	apperr "github.com/rahmatrdn/go-skeleton/error"
-	"github.com/rahmatrdn/go-skeleton/internal/helper"
-	"github.com/rahmatrdn/go-skeleton/internal/repository/mysql/entity"
+	"github.com/rakahikmah/finance-tracking/config"
+	apperr "github.com/rakahikmah/finance-tracking/error"
+	"github.com/rakahikmah/finance-tracking/internal/helper"
+	"github.com/rakahikmah/finance-tracking/internal/repository/mysql/entity"
 	"gorm.io/gorm"
 
 	"gorm.io/gorm/clause"

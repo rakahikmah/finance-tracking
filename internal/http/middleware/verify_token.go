@@ -2,8 +2,8 @@ package middleware
 
 import (
 	"github.com/gofiber/fiber/v2"
-	apperr "github.com/rahmatrdn/go-skeleton/error"
-	"github.com/rahmatrdn/go-skeleton/internal/http/auth"
+	apperr "github.com/rakahikmah/finance-tracking/error"
+	"github.com/rakahikmah/finance-tracking/internal/http/auth"
 )
 
 func VerifyJWTToken(c *fiber.Ctx) error {

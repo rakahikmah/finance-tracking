@@ -8,7 +8,7 @@ import (
 	ut "github.com/go-playground/universal-translator"
 	"github.com/go-playground/validator/v10"
 	id_translations "github.com/go-playground/validator/v10/translations/id"
-	"github.com/rahmatrdn/go-skeleton/entity"
+	"github.com/rakahikmah/finance-tracking/entity"
 )
 
 var validate = validator.New()

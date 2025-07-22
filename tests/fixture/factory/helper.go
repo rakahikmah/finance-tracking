@@ -6,7 +6,7 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/rahmatrdn/go-skeleton/internal/helper"
+	"github.com/rakahikmah/finance-tracking/internal/helper"
 
 	"github.com/DATA-DOG/go-sqlmock"
 	"gorm.io/gorm/schema"

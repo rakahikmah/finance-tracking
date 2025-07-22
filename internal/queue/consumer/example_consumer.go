@@ -3,9 +3,9 @@ package consumer
 import (
 	"context"
 
-	"github.com/rahmatrdn/go-skeleton/entity"
-	"github.com/rahmatrdn/go-skeleton/internal/helper"
-	mongoRepo "github.com/rahmatrdn/go-skeleton/internal/repository/mongodb"
+	"github.com/rakahikmah/finance-tracking/entity"
+	"github.com/rakahikmah/finance-tracking/internal/helper"
+	mongoRepo "github.com/rakahikmah/finance-tracking/internal/repository/mongodb"
 )
 
 type ExampleQueue struct {

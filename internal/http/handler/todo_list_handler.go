@@ -3,11 +3,11 @@ package handler
 import (
 	"net/http"
 
-	"github.com/rahmatrdn/go-skeleton/internal/http/middleware"
-	"github.com/rahmatrdn/go-skeleton/internal/parser"
-	"github.com/rahmatrdn/go-skeleton/internal/presenter/json"
-	todo_list_usecase "github.com/rahmatrdn/go-skeleton/internal/usecase/todo_list"
-	"github.com/rahmatrdn/go-skeleton/internal/usecase/todo_list/entity"
+	"github.com/rakahikmah/finance-tracking/internal/http/middleware"
+	"github.com/rakahikmah/finance-tracking/internal/parser"
+	"github.com/rakahikmah/finance-tracking/internal/presenter/json"
+	todo_list_usecase "github.com/rakahikmah/finance-tracking/internal/usecase/todo_list"
+	"github.com/rakahikmah/finance-tracking/internal/usecase/todo_list/entity"
 
 	fiber "github.com/gofiber/fiber/v2"
 )

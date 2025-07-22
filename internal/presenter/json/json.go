@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/rahmatrdn/go-skeleton/entity"
-	apperr "github.com/rahmatrdn/go-skeleton/error"
+	"github.com/rakahikmah/finance-tracking/entity"
+	apperr "github.com/rakahikmah/finance-tracking/error"
 
 	"github.com/gofiber/fiber/v2"
 )

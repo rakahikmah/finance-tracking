@@ -1,0 +1,60 @@
+# .air.toml
+# Konfigurasi Air untuk project finance-tracking
+
+# Direktori root proyek kamu.
+# Karena `.air.toml` berada di root, maka nilainya adalah "."
+root = "."
+
+# Direktori sementara untuk menyimpan binary yang dibangun oleh Go.
+# Kita akan menyimpannya di dalam folder `tmp` di root project.
+tmp_dir = "tmp"
+
+[build]
+# Perintah untuk membangun aplikasi Go-mu.
+# Sesuai dengan cara kamu menjalankan: `go run cmd/api/main.go`.
+# Jadi, kita perlu `go build` binary utama dari `cmd/api/main.go`
+# dan menyimpannya di `tmp/main`.
+cmd = "go build -o ./tmp/main ./cmd/api"
+
+# Lokasi binary yang dihasilkan setelah build.
+# Air akan menjalankan binary ini.
+bin = "./tmp/main"
+
+# Jika binary tidak memerlukan path lengkap, kosongkan ini.
+full_bin = ""
+
+# Direktori yang akan dipantau perubahannya.
+# Kita ingin memantau seluruh project, jadi "./" sudah cukup.
+# Bisa juga menambahkan folder spesifik seperti "internal", "entity", dll.
+include_dir = [
+  ".",
+]
+
+# Direktori yang akan diabaikan (tidak dipantau perubahannya).
+# Penting untuk mengabaikan `tmp` agar tidak terjadi loop pemantauan.
+exclude_dir = [
+  "tmp",
+  "vendor", # Jika kamu menggunakan vendor modules
+  "node_modules", # Jika ada frontend di project yang sama
+  ".git",
+]
+
+# Ekstensi file yang akan memicu restart saat ada perubahan.
+include_ext = ["go", "tpl", "tmpl", "html", "yaml", "json", "env"]
+
+[log]
+# Menampilkan waktu log dari Air.
+time = true
+
+[color]
+# Mengatur warna output log Air di terminal.
+main = "magenta"
+watcher = "cyan"
+build = "yellow"
+runner = "green"
+app = "" # Biarkan kosong untuk output aplikasi tanpa warna khusus
+
+[misc]
+# Menentukan apakah perlu menampilkan pesan "watching..." saat Air berjalan.
+# Bisa diatur ke `false` jika ingin output lebih bersih.
+watcher = true

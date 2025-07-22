@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/rahmatrdn/go-skeleton/entity"
+	"github.com/rakahikmah/finance-tracking/entity"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )

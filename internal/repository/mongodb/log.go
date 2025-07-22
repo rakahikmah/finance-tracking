@@ -4,8 +4,8 @@ import (
 	"context"
 
 	errwrap "github.com/pkg/errors"
-	"github.com/rahmatrdn/go-skeleton/internal/helper"
-	"github.com/rahmatrdn/go-skeleton/internal/repository/mongodb/entity"
+	"github.com/rakahikmah/finance-tracking/internal/helper"
+	"github.com/rakahikmah/finance-tracking/internal/repository/mongodb/entity"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 

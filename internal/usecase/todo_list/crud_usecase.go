@@ -6,12 +6,12 @@ import (
 	"time"
 
 	errwrap "github.com/pkg/errors"
-	generalEntity "github.com/rahmatrdn/go-skeleton/entity"
-	"github.com/rahmatrdn/go-skeleton/internal/helper"
-	"github.com/rahmatrdn/go-skeleton/internal/repository/mysql"
-	mentity "github.com/rahmatrdn/go-skeleton/internal/repository/mysql/entity"
-	"github.com/rahmatrdn/go-skeleton/internal/usecase"
-	"github.com/rahmatrdn/go-skeleton/internal/usecase/todo_list/entity"
+	generalEntity "github.com/rakahikmah/finance-tracking/entity"
+	"github.com/rakahikmah/finance-tracking/internal/helper"
+	"github.com/rakahikmah/finance-tracking/internal/repository/mysql"
+	mentity "github.com/rakahikmah/finance-tracking/internal/repository/mysql/entity"
+	"github.com/rakahikmah/finance-tracking/internal/usecase"
+	"github.com/rakahikmah/finance-tracking/internal/usecase/todo_list/entity"
 )
 
 type CrudTodoListUsecase struct {

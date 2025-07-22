@@ -7,10 +7,10 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/rahmatrdn/go-skeleton/config"
-	"github.com/rahmatrdn/go-skeleton/internal/queue"
-	"github.com/rahmatrdn/go-skeleton/internal/queue/consumer"
-	"github.com/rahmatrdn/go-skeleton/internal/repository/mongodb"
+	"github.com/rakahikmah/finance-tracking/config"
+	"github.com/rakahikmah/finance-tracking/internal/queue"
+	"github.com/rakahikmah/finance-tracking/internal/queue/consumer"
+	"github.com/rakahikmah/finance-tracking/internal/repository/mongodb"
 	"github.com/subosito/gotenv"
 	"go.mongodb.org/mongo-driver/mongo"
 )

@@ -4,9 +4,9 @@ import (
 	"errors"
 	"os"
 
-	"github.com/rahmatrdn/go-skeleton/entity"
-	"github.com/rahmatrdn/go-skeleton/internal/helper"
-	"github.com/rahmatrdn/go-skeleton/internal/queue"
+	"github.com/rakahikmah/finance-tracking/entity"
+	"github.com/rakahikmah/finance-tracking/internal/helper"
+	"github.com/rakahikmah/finance-tracking/internal/queue"
 	"go.uber.org/zap"
 )
 

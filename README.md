@@ -54,7 +54,7 @@ Feel free to contribute to this repository if you'd like!
 ### Installation
 1. Clone this repo
 ```sh
-git clone https://github.com/rahmatrdn/go-skeleton.git
+git clone https://github.com/rakahikmah/finance-tracking.git
 ```
 2. Copy `example.env` to `.env`
 ```sh

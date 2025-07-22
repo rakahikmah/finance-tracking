@@ -5,8 +5,8 @@ import (
 	"testing"
 
 	fiber "github.com/gofiber/fiber/v2"
-	"github.com/rahmatrdn/go-skeleton/internal/http/handler"
-	"github.com/rahmatrdn/go-skeleton/tests/mocks"
+	"github.com/rakahikmah/finance-tracking/internal/http/handler"
+	"github.com/rakahikmah/finance-tracking/tests/mocks"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/suite"
 	"github.com/valyala/fasthttp"

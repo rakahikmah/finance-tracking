@@ -1,6 +1,6 @@
 package mocks
 
-import entity "github.com/rahmatrdn/go-skeleton/entity"
+import entity "github.com/rakahikmah/finance-tracking/entity"
 
 type MockLogger struct {
 	LogErrorFunc func(processName string, funcName string, err error, logFields entity.CaptureFields, message string)

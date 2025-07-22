@@ -6,8 +6,8 @@ import (
 	"time"
 
 	"github.com/go-co-op/gocron/v2"
-	"github.com/rahmatrdn/go-skeleton/entity"
-	"github.com/rahmatrdn/go-skeleton/internal/helper"
+	"github.com/rakahikmah/finance-tracking/entity"
+	"github.com/rakahikmah/finance-tracking/internal/helper"
 	"github.com/subosito/gotenv"
 )
 

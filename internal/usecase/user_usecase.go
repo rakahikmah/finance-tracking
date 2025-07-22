@@ -5,12 +5,12 @@ import (
 	"fmt"
 
 	errwrap "github.com/pkg/errors"
-	"github.com/rahmatrdn/go-skeleton/entity"
-	apperr "github.com/rahmatrdn/go-skeleton/error"
-	"github.com/rahmatrdn/go-skeleton/internal/helper"
-	"github.com/rahmatrdn/go-skeleton/internal/http/auth"
-	"github.com/rahmatrdn/go-skeleton/internal/repository/mysql"
-	mentity "github.com/rahmatrdn/go-skeleton/internal/repository/mysql/entity"
+	"github.com/rakahikmah/finance-tracking/entity"
+	apperr "github.com/rakahikmah/finance-tracking/error"
+	"github.com/rakahikmah/finance-tracking/internal/helper"
+	"github.com/rakahikmah/finance-tracking/internal/http/auth"
+	"github.com/rakahikmah/finance-tracking/internal/repository/mysql"
+	mentity "github.com/rakahikmah/finance-tracking/internal/repository/mysql/entity"
 	"golang.org/x/crypto/bcrypt"
 )
 

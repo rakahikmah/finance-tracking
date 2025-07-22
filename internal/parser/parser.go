@@ -6,8 +6,8 @@ import (
 
 	"github.com/go-playground/validator/v10"
 	"github.com/gofiber/fiber/v2"
-	apperr "github.com/rahmatrdn/go-skeleton/error"
-	"github.com/rahmatrdn/go-skeleton/internal/helper"
+	apperr "github.com/rakahikmah/finance-tracking/error"
+	"github.com/rakahikmah/finance-tracking/internal/helper"
 )
 
 type WithPathID interface {

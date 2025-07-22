@@ -7,9 +7,9 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/golang-jwt/jwt/v4"
-	"github.com/rahmatrdn/go-skeleton/config"
-	"github.com/rahmatrdn/go-skeleton/entity"
-	mentity "github.com/rahmatrdn/go-skeleton/internal/repository/mysql/entity"
+	"github.com/rakahikmah/finance-tracking/config"
+	"github.com/rakahikmah/finance-tracking/entity"
+	mentity "github.com/rakahikmah/finance-tracking/internal/repository/mysql/entity"
 )
 
 const (

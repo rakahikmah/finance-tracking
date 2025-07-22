@@ -3,7 +3,7 @@ package config
 import (
 	"context"
 
-	"github.com/rahmatrdn/go-skeleton/internal/queue"
+	"github.com/rakahikmah/finance-tracking/internal/queue"
 )
 
 func NewRabbitMQInstance(ctx context.Context, cfg *RabbitMQOption) (*queue.RabbitMQ, error) {

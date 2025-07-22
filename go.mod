@@ -1,4 +1,4 @@
-module github.com/rahmatrdn/go-skeleton
+module github.com/rakahikmah/finance-tracking
 
 go 1.24.1
 

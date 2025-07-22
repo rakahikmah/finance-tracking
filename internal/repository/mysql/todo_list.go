@@ -3,11 +3,11 @@ package mysql
 import (
 	"context"
 
-	"github.com/rahmatrdn/go-skeleton/config"
-	"github.com/rahmatrdn/go-skeleton/internal/helper"
-	"github.com/rahmatrdn/go-skeleton/internal/repository/mysql/entity"
+	"github.com/rakahikmah/finance-tracking/config"
+	"github.com/rakahikmah/finance-tracking/internal/helper"
+	"github.com/rakahikmah/finance-tracking/internal/repository/mysql/entity"
 
-	apperr "github.com/rahmatrdn/go-skeleton/error"
+	apperr "github.com/rakahikmah/finance-tracking/error"
 
 	errwrap "github.com/pkg/errors"
 	"gorm.io/gorm"

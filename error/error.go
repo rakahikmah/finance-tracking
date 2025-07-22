@@ -3,7 +3,7 @@ package error
 import (
 	"net/http"
 
-	"github.com/rahmatrdn/go-skeleton/entity"
+	"github.com/rakahikmah/finance-tracking/entity"
 )
 
 func ErrRecordNotFound() CustomErrorResponse {
