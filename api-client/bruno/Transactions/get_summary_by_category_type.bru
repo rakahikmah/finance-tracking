@@ -1,0 +1,15 @@
+meta {
+  name: Get Summary By Category and Type
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{url}}/api/v1/transactions/summary-by-category-type?start_date=2025-07-01&end_date=2025-07-31
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

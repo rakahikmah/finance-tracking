@@ -1,0 +1,26 @@
+meta {
+  name: Create Transaction
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/api/v1/transactions
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+   
+  {
+    "amount": 50000.00,
+    "type": "expense",
+    "description": "Beli kopi susu",
+    "transaction_date": "2025-07-23",
+    "category_id": 123
+   }
+}

@@ -1,3 +1,4 @@
+// go.mod
 module github.com/rakahikmah/finance-tracking
 
 go 1.24.1

@@ -1,11 +1,11 @@
 meta {
-  name: Check Token
+  name: Get All Transactions
   type: http
-  seq: 3
+  seq: 2
 }
 
 get {
-  url: {{url}}/api/v1/auth/check-token
+  url: {{url}}/api/v1/transactions
   body: none
   auth: bearer
 }

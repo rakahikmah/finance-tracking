@@ -14,6 +14,13 @@ const (
 	DATA_NOT_FOUND_MSG   = "Data not found"
 	USER_NOT_FOUND_MSG   = "User not found"
 
+	UNAUTHORIZED_CODE      = "03" // Kode untuk akses tidak sah
+	UNAUTHORIZED_MSG       = "Unauthorized access"
+
+	CONFLICT_CODE          = "04" // Kode untuk konflik data (misal: duplikasi)
+	CONFLICT_MSG           = "Data conflict"
+
+
 	GENERAL_ERROR_MESSAGE = "Something went wrong. Please try again later."
 )
 

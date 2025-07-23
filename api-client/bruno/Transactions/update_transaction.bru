@@ -1,0 +1,25 @@
+meta {
+  name: Update Transaction
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{url}}/api/v1/transactions/{{transaction_id}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "amount": 75000.00,
+    "type": "expense",
+    "description": "Makan siang di kantor",
+    "transaction_date": "2025-07-22",
+    "category_id": 456
+  }
+}

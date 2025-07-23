@@ -23,6 +23,8 @@ import (
 	"github.com/rakahikmah/finance-tracking/internal/repository/mysql"
 	"github.com/rakahikmah/finance-tracking/internal/usecase"
 	todo_list_usecase "github.com/rakahikmah/finance-tracking/internal/usecase/todo_list"
+	category_usecase "github.com/rakahikmah/finance-tracking/internal/usecase/category"
+	transactions_usecase "github.com/rakahikmah/finance-tracking/internal/usecase/transactions" // Import usecase transaksi
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
@@ -89,19 +91,30 @@ func main() {
 	// AUTH : Write authetincation mechanism method (JWT, Basic Auth, etc.)
 	jwtAuth := auth.NewJWTAuth()
 
-	// REPOSITORY : Write repository code here (database, cache, etc.)
+	// --- REPOSITORY : Write repository code here (database, cache, etc.) ---
 	userRepo := mysql.NewUserRepository(mysqlDB)
 	todoListRepo := mysql.NewTodoListRepository(mysqlDB)
+	CategoryRepo := mysql.NewCategoryRepository(mysqlDB)
+	TransactionRepo := mysql.NewTransactionRepository(mysqlDB)
 
-	// USECASE : Write bussines logic code here (validation, business logic, etc.)
-	// _ = usecase.NewLogUsecase(queue)  // LogUsecase is a sample usecase for sending log to queue (Mongodb, ElasticSearch, etc.)
+
+
+	// --- USECASE : Write bussines logic code here (validation, business logic, etc.) ---
+	// _ = usecase.NewLogUsecase(queue) // LogUsecase is a sample usecase for sending log to queue (Mongodb, ElasticSearch, etc.)
 	userUsecase := usecase.NewUserUsecase(userRepo, jwtAuth)
 	crudTodoListUsecase := todo_list_usecase.NewCrudTodoListUsecase(todoListRepo)
+	crudCategoryUsecase := category_usecase.NewCrudCategory(CategoryRepo)
+	crudTransactionUsecase := transactions_usecase.NewCrudTransaction(TransactionRepo, CategoryRepo)
+	
 
+	// --- HANDLER : Register HTTP endpoints ---
 	api := app.Group("/api/v1")
 
 	handler.NewAuthHandler(parser, presenterJson, userUsecase).Register(api)
 	handler.NewTodoListHandler(parser, presenterJson, crudTodoListUsecase).Register(api)
+	handler.NewCategoryHandler(parser, presenterJson, crudCategoryUsecase).Register(api)
+	handler.NewTransactionHandler(parser, presenterJson, crudTransactionUsecase).Register(api)
+	
 
 	app.Get("/health-check", healthCheck)
 	app.Get("/metrics", monitor.New())
